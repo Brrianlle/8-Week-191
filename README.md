@@ -50,5 +50,10 @@ Week 7:
 
 Week 8:
 
+![Page4](https://github.com/Brrianlle/8-Week-191/assets/164386551/50ad4c4e-6266-4c11-a832-5f57512f52f4)
+![Page3](https://github.com/Brrianlle/8-Week-191/assets/164386551/997f86e6-c9a0-4221-b654-fdb95971a3a3)
+![Page1](https://github.com/Brrianlle/8-Week-191/assets/164386551/796ed428-529a-42dd-b1d2-4e92eaa9b71b)
+![Page2](https://github.com/Brrianlle/8-Week-191/assets/164386551/90be685e-2041-441b-aac7-b5e4c2430f13)
+
 
 
