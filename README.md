@@ -26,6 +26,8 @@ Week 1: Project Setup and GUI Skeleton
 
 - Make CRC cards
 
+- Make UML
+
 - Update repository
 
 - Set up the project structure and environment.
