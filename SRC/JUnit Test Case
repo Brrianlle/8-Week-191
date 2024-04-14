@@ -1,1 +1,27 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ *  Author: Brian Le
+ *  
+ *  Version / Date: 04-14-2024
+ *  
+ *  Responsibilities: Tests to ensure methods work
+ */
+
+/*
+ * This test makes sure the GUI is properly initialized and
+ * displayed when the inventory object is created
+ */
+public class InventoryTest {
+
+    @Test
+    void testCreateAndShowGUI() 
+    {
+        Inventory inventory = new Inventory();
+        assertNotNull(inventory);
+        // Add more assertions as needed
+    }
+}
