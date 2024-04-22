@@ -61,3 +61,31 @@ public class Inventory
         new Inventory();
     }
 }
+
+//========= Week 2 ============
+
+abstract class AbstractItem {
+    protected String name;
+    protected double price;
+    protected int quantity;
+
+    public AbstractItem(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public abstract double calculateTotalPrice();
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+}
