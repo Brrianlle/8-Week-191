@@ -57,3 +57,5 @@ Week 8:
 
 
 
+
+![Snip - Wireframe cc – The Go-to Free, Online Wireframing Tool (2)](https://github.com/Brrianlle/InventoryManagement/assets/164386551/48e9b2bc-985f-489e-bb93-07a4b4395c94)
