@@ -64,12 +64,14 @@ public class Inventory
 
 //========= Week 2 ============
 
-abstract class AbstractItem {
+abstract class AbstractItem 
+{
     protected String name;
     protected double price;
     protected int quantity;
 
-    public AbstractItem(String name, double price, int quantity) {
+    public AbstractItem(String name, double price, int quantity)
+    {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -77,15 +79,18 @@ abstract class AbstractItem {
 
     public abstract double calculateTotalPrice();
 
-    public String getName() {
+    public String getName() 
+    {
         return name;
     }
 
-    public double getPrice() {
+    public double getPrice() 
+    {
         return price;
     }
 
-    public int getQuantity() {
+    public int getQuantity() 
+    {
         return quantity;
     }
 }
