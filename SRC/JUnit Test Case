@@ -25,3 +25,13 @@ public class InventoryTest {
         // Add more assertions as needed
     }
 }
+
+//    @Test
+//    void testAbstractItemConstructor() 
+//    {
+//        AbstractItem item = new ElectronicItem("Laptop", 999.99, 3);
+//        assertNotNull(item);
+//        assertEquals("Laptop", item.getName());
+//        assertEquals(999.99, item.getPrice());
+//        assertEquals(3, item.getQuantity());
+//    }
