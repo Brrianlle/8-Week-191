@@ -67,3 +67,33 @@ public class Inventory
     }
 }
 
+//////////////////////////////////////// Week 2 ////////////////////////////////////////
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Inventory 
+{
+    public Inventory() 
+    {
+        createAndShowGUI();
+    }
+
+    private void createAndShowGUI()
+    {
+        JFrame frame = new JFrame("Inventory Management System");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300);
+
+        JTextArea textArea = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args)
+    {
+        SwingUtilities.invokeLater(() -> new Inventory());
+    }
+}
