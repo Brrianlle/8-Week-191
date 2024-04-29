@@ -158,3 +158,42 @@ class NonRenewableItem extends AbstractItem
         return price * quantity;
     }
 }
+
+//////////////////////////////////////// Week 4 ////////////////////////////////////////
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Inventory 
+{
+    private ArrayList<AbstractItem> inventory = new ArrayList<>();
+
+    public void addItem(AbstractItem item)
+    {
+        inventory.add(item);
+    }
+
+    public void removeItem(AbstractItem item)
+    {
+        Iterator<AbstractItem> iterator = inventory.iterator();
+        while (iterator.hasNext()) {
+            AbstractItem currentItem = iterator.next();
+            if (currentItem.equals(item)) {
+                iterator.remove();
+            }
+        }
+    }
+
+    public void viewAllItems() 
+    {
+        for (AbstractItem item : inventory) 
+        {
+            System.out.println(item.getName());
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        // Main method to run the program
+    }
+}
