@@ -1,0 +1,69 @@
+//////////////////////////////////////// Week 1 ////////////////////////////////////////
+
+abstract class AbstractItem 
+{
+    protected String name;
+    protected double price;
+    protected int quantity;
+
+    public AbstractItem(String name, double price, int quantity) 
+    {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public abstract double calculateTotalPrice();
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public double getPrice()
+    {
+        return price;
+    }
+
+    public int getQuantity() 
+    {
+        return quantity;
+    }
+}
+
+class RenewableItem extends AbstractItem 
+{
+    public RenewableItem(String name, double price, int quantity) 
+    {
+        super(name, price, quantity);
+    }
+
+    @Override
+    public double calculateTotalPrice() 
+    {
+        return price * quantity;
+    }
+}
+
+class NonRenewableItem extends AbstractItem 
+{
+    public NonRenewableItem(String name, double price, int quantity) 
+    {
+        super(name, price, quantity);
+    }
+
+    @Override
+    public double calculateTotalPrice()
+    {
+        return price * quantity;
+    }
+}
+
+public class Inventory 
+{
+    public static void main(String[] args) 
+    {
+        // Main method to run the program
+    }
+}
+
