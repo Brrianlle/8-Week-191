@@ -22,27 +22,23 @@ Requirements:
 
 Week 1: Project Setup and GUI Skeleton
 
-- Create a project proposal
-
-- Make CRC cards
-
-- Make UML
-
-- Update repository
-
-- Set up the project structure and environment.
-
-- Create the main class and basic GUI components using Swing.
-
-- Implement the main window layout with buttons for viewing, adding, deleting, and saving inventory items.
+-In the first week, we establish the foundation of our inventory management system by laying out the basic Java classes and concepts
 
 Week 2:
 
+-In the second week, we introduce Swing, which is a Java GUI toolkit for creating graphical user interfaces
+
 Week 3:
+
+-During the third week, we deepen our understanding of abstract classes and inheritance
 
 Week 4:
 
+-In the fourth week, we introduce data structures and iteration techniques to manage collections of items
+
 Week 5:
+
+-During the fifth week, we introduce file handling to persist inventory data, and created functional buttons, with the GUI
 
 Week 6:
 
