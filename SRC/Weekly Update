@@ -197,3 +197,237 @@ public class Inventory
         // Main method to run the program
     }
 }
+
+//////////////////////////////////////// Week 5 ////////////////////////////////////////
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+//////////////////////////// File Handling ////////////////////////////
+
+public class Inventory
+{
+    private ArrayList<AbstractItem> inventory = new ArrayList<>();
+
+    public void saveInventory() 
+    {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("inventory.txt"))) 
+        {
+            for (AbstractItem item : inventory) 
+            {
+                writer.printf("%s,%.2f,%d%n", item.getName(), item.getPrice(), item.getQuantity());
+            }
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        // Main method to run the program
+    }
+    
+//////////////////////////// Event Handling ////////////////////////////
+    
+    public class Inventory
+    {
+        ArrayList<AbstractItem> inventory = new ArrayList<>();
+        private JFrame frame;
+
+        public Inventory() 
+        {
+            createAndShowGUI();
+        }
+
+        private void createAndShowGUI()
+        {
+            frame = new JFrame("Inventory Management System");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(400, 300);
+            frame.setLayout(new BorderLayout());
+
+            JTextArea textArea = new JTextArea();
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            frame.add(scrollPane, BorderLayout.CENTER);
+
+            JPanel buttonPanel = new JPanel();
+            buttonPanel.setLayout(new FlowLayout());
+
+            JButton viewButton = new JButton("View All");
+            JButton addButton = new JButton("Add Item");
+            JButton deleteButton = new JButton("Delete Item");
+            JButton saveButton = new JButton("Save Inventory");
+
+            viewButton.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e) 
+                {
+                    viewAll(textArea);
+                }
+            });
+
+            addButton.addActionListener(new ActionListener() 
+            {
+                public void actionPerformed(ActionEvent e) 
+                {
+                    addItem();
+                }
+            });
+
+            deleteButton.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e)
+                {
+                    removeItem();
+                }
+            });
+
+            saveButton.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e)
+                {
+                    saveInventory();
+                }
+            });
+
+            buttonPanel.add(viewButton);
+            buttonPanel.add(addButton);
+            buttonPanel.add(deleteButton);
+            buttonPanel.add(saveButton);
+
+            frame.add(buttonPanel, BorderLayout.SOUTH);
+            frame.setVisible(true);
+        }
+
+        private void viewAll(JTextArea textArea) 
+        {
+            // Implement viewAll method
+        }
+
+        private void addItem()
+        {
+            // Implement addItem method
+        }
+
+        private void removeItem()
+        {
+            // Implement removeItem method
+        }
+
+        public void saveInventory() 
+        {
+            // Implement saveInventory method
+        }
+
+        public static void main(String[] args) 
+        {
+            new Inventory();
+        }
+    }
+    
+//////////////////////////// GUI Layout Management ////////////////////////////
+    
+    public class Inventory 
+    {
+        ArrayList<AbstractItem> inventory = new ArrayList<>();
+        private JFrame frame;
+
+        public Inventory() 
+        {
+            createAndShowGUI();
+        }
+
+        private void createAndShowGUI() 
+        {
+            frame = new JFrame("Inventory Management System");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(400, 300);
+            frame.setLayout(new BorderLayout());
+
+            JTextArea textArea = new JTextArea();
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            frame.add(scrollPane, BorderLayout.CENTER);
+
+            JPanel buttonPanel = new JPanel();
+            buttonPanel.setLayout(new FlowLayout());
+
+            JButton viewButton = new JButton("View All");
+            JButton addButton = new JButton("Add Item");
+            JButton deleteButton = new JButton("Delete Item");
+            JButton saveButton = new JButton("Save Inventory");
+
+            viewButton.addActionListener(new ActionListener() 
+            {
+                public void actionPerformed(ActionEvent e) 
+                {
+                    viewAll(textArea);
+                }
+            });
+
+            addButton.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e) 
+                {
+                    addItem();
+                }
+            });
+
+            deleteButton.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e) 
+                {
+                    removeItem();
+                }
+            });
+
+            saveButton.addActionListener(new ActionListener()
+{
+                public void actionPerformed(ActionEvent e)
+                {
+                    saveInventory();
+                }
+            });
+
+            buttonPanel.add(viewButton);
+            buttonPanel.add(addButton);
+            buttonPanel.add(deleteButton);
+            buttonPanel.add(saveButton);
+
+            frame.add(buttonPanel, BorderLayout.SOUTH);
+            frame.setVisible(true);
+        }
+
+        private void viewAll(JTextArea textArea) 
+        {
+            // Implement viewAll method
+        }
+
+        private void addItem() 
+        {
+            // Implement addItem method
+        }
+
+        private void removeItem() 
+        {
+            // Implement removeItem method
+        }
+
+        public void saveInventory()
+        {
+            // Implement saveInventory method
+        }
+
+        public static void main(String[] args)
+        {
+            new Inventory();
+        }
+    }
+}
+
