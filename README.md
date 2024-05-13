@@ -2,25 +2,25 @@
 
 ## Table of context
 
-1.[Description](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#description)
+* [Description](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#description)
 
-2.[Purpose](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#purpose)
+* [Purpose](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#purpose)
 
-3.[Introduction](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#introduction)
+* [Introduction](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#introduction)
 
-4.[Requirements](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#requirements)
+* [Requirements](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#requirements)
 
-5.[Blueprint](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#blueprint)
+* [Blueprint](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#blueprint)
 
-6.[UML](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#uml)
+* [UML](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#uml)
 
-7.[CRC CARDS](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#crc)
+* [CRC CARDS](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#crc)
 
-8.[WireFrame](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
+* [WireFrame](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
 
-9.[RTM](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
+* [RTM](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
 
-10.[GUI](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
+* [GUI](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
 
 
 ## Description:
