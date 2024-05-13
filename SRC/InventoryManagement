@@ -1,31 +1,123 @@
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-//Week 1
-/*
-/ Author: Brian Le
-/
-/ Version / Date : 04/14/2024
-/
-/ Responsibilities: Sets up thr basic GUI components with buttons for 
-/ viewing, deleting, and saving inventory
-/
-*/
+/**
+ * 
+ * Lead Author(s):
+ * @author Brian Le
+ *
+ * <<add additional lead authors here, with a full first and last name>>
+ * 
+ * Other contributors:
+ * <<add additional contributors (mentors, tutors, friends) here, with contact information>>
+ * 
+ * <<add more references here>>
+ *  
+ * Version/date: TBD
+ * 
+ * Responsibilities of class:
+ * manages the storage and manipulation of items within an inventory system.
+ * It provides functionalities for viewing, adding, and removing items from 
+ * the inventory, as well as saving the inventory to a file. Additionally, 
+ * it is responsible for creating and displaying the graphical user interface
+ * (GUI) for interacting with the inventory system
+ * 
+ */
 
+////////////////////////////// Abstract item //////////////////////////////
 
+abstract class AbstractItem 
+{
+    protected String name;
+    protected double price;
+    protected int quantity;
 
+    public AbstractItem(String name, double price, int quantity)
+    {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    // Abstract method to calculate total price
+    public abstract double calculateTotalPrice();
+
+    // Getters for name, price, and quantity
+    public String getName() 
+    {
+        return name;
+    }
+
+    public double getPrice() 
+    {
+        return price;
+    }
+
+    public int getQuantity() 
+    {
+        return quantity;
+    }
+}
+
+// Concrete subclass for renewable items
+class RenewableItem extends AbstractItem 
+{
+    public RenewableItem(String name, double price, int quantity) 
+    {
+        super(name, price, quantity);
+    }
+
+    // Override abstract method to calculate total price
+    @Override
+    public double calculateTotalPrice() 
+    {
+        return price * quantity;
+    }
+}
+
+// Concrete subclass for non-renewable items
+class NonRenewableItem extends AbstractItem 
+{
+    public NonRenewableItem(String name, double price, int quantity) 
+    {
+        super(name, price, quantity);
+    }
+
+    // Override abstract method to calculate total price
+    @Override
+    public double calculateTotalPrice()
+    {
+        return price * quantity;
+    }
+}
+
+////////////////////////////// Inventory class to manage items //////////////////////////////
+/**
+ * The Inventory class manages items within an inventory system.
+ */
 public class Inventory 
 {
+	// ArrayList to store items in the inventory
+	private ArrayList<AbstractItem> inventory = new ArrayList<>();
+	// JFrame for the GUI
     private JFrame frame;
 
-    public Inventory() 
+    /**
+     * Constructor to create an instance of the Inventory class.
+     * Initializes the GUI.
+     */
+    public Inventory()
     {
         createAndShowGUI();
     }
 
+    /**
+     * Creates and shows the graphical user interface (GUI) for the inventory management system.
+     */
     private void createAndShowGUI() 
     {
         frame = new JFrame("Inventory Management System");
@@ -45,7 +137,13 @@ public class Inventory
         JButton deleteButton = new JButton("Delete Item");
         JButton saveButton = new JButton("Save Inventory");
 
-        // Add button actions here
+        viewButton.addActionListener(e -> viewAll(textArea));
+
+        addButton.addActionListener(e -> addItem());
+
+        deleteButton.addActionListener(e -> removeItem());
+
+        saveButton.addActionListener(e -> saveInventory());
 
         buttonPanel.add(viewButton);
         buttonPanel.add(addButton);
@@ -56,41 +154,151 @@ public class Inventory
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) 
+    /**
+     * Displays all items in the inventory along with their details.
+     * @param textArea JTextArea to display the inventory details.
+     */
+    private void viewAll(JTextArea textArea) 
+    {
+        textArea.setText("");
+        textArea.append("VIEW ALL\n");
+        textArea.append("----------------------------------------\n");
+        textArea.append(String.format("%-20s%-12s%-10s%n", "NAME", "PRICE", "QUANTITY"));
+        textArea.append("----------------------------------------\n");
+
+        double renewableTotalPrice = 0;
+        int renewableTotalQuantity = 0;
+        double nonRenewableTotalPrice = 0;
+        int nonRenewableTotalQuantity = 0;
+
+        textArea.append("Renewable Items:\n");
+        textArea.append("----------------------------------------\n");
+        for (AbstractItem item : inventory) 
+        {
+            if (item instanceof RenewableItem) 
+            {
+                textArea.append(String.format("%-20s$%-12.2f%-10d%n", item.getName(), item.getPrice(), item.getQuantity()));
+                renewableTotalQuantity += item.getQuantity();
+                renewableTotalPrice += item.calculateTotalPrice();
+            }
+        }
+
+        textArea.append(String.format("\nTotal Renewable Items: %d%n", renewableTotalQuantity));
+        textArea.append(String.format("Total Renewable Price: $%.2f%n", renewableTotalPrice));
+
+        textArea.append("\n\nNon-Renewable Items:\n");
+        textArea.append("----------------------------------------\n");
+        for (AbstractItem item : inventory) 
+        {
+            if (item instanceof NonRenewableItem) 
+            {
+                textArea.append(String.format("%-20s$%-12.2f%-10d%n", item.getName(), item.getPrice(), item.getQuantity()));
+                nonRenewableTotalQuantity += item.getQuantity();
+                nonRenewableTotalPrice += item.calculateTotalPrice();
+            }
+        }
+
+        textArea.append(String.format("\nTotal Non-Renewable Items: %d%n", nonRenewableTotalQuantity));
+        textArea.append(String.format("Total Non-Renewable Price: $%.2f%n", nonRenewableTotalPrice));
+    }
+
+    /**
+     * Adds a new item to the inventory based on user input.
+     */
+    private void addItem() 
+    {
+        JTextField nameField = new JTextField(10);
+        JTextField priceField = new JTextField(10);
+        JTextField quantityField = new JTextField(10);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(0, 1));
+        panel.add(new JLabel("Name:"));
+        panel.add(nameField);
+        panel.add(new JLabel("Price:"));
+        panel.add(priceField);
+        panel.add(new JLabel("Quantity:"));
+        panel.add(quantityField);
+
+        int result = JOptionPane.showConfirmDialog(null, panel, "Add Item", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) 
+        {
+            try 
+            {
+                String name = nameField.getText();
+                double price = Double.parseDouble(priceField.getText());
+                int quantity = Integer.parseInt(quantityField.getText());
+
+                String[] options = {"Renewable", "Non-renewable"};
+                int category = JOptionPane.showOptionDialog(null, "Select Category", "Category",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+
+                if (category == 0) {
+                    inventory.add(new RenewableItem(name, price, quantity));
+                } else if (category == 1) {
+                    inventory.add(new NonRenewableItem(name, price, quantity));
+                }
+                JOptionPane.showMessageDialog(null, "Item added successfully!");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Invalid input! Please enter valid numeric values.");
+            }
+        }
+    }
+
+    /**
+     * Removes an item from the inventory based on user selection.
+     */
+    private void removeItem() 
+    {
+        String[] itemNames = new String[inventory.size()];
+        for (int i = 0; i < inventory.size(); i++)
+        {
+            itemNames[i] = inventory.get(i).getName();
+        }
+
+        String itemName = (String) JOptionPane.showInputDialog(null, "Select Item to Remove", "Remove Item",
+                JOptionPane.QUESTION_MESSAGE, null, itemNames, itemNames[0]);
+
+        if (itemName != null) 
+        {
+            Iterator<AbstractItem> iterator = inventory.iterator();
+            while (iterator.hasNext())
+            {
+                AbstractItem item = iterator.next();
+                if (item.getName().equals(itemName)) 
+                {
+                    iterator.remove();
+                    JOptionPane.showMessageDialog(null, "Item removed successfully!");
+                }
+            }
+        }
+    }
+
+    /**
+     * Saves the current inventory to a text file.
+     */
+    public void saveInventory() 
+    {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("inventory.txt")))
+        {
+            for (AbstractItem item : inventory) 
+            {
+                writer.printf("%s,%.2f,%d%n", item.getName(), item.getPrice(), item.getQuantity());
+            }
+            JOptionPane.showMessageDialog(null, "Inventory saved to file.");
+        } catch (IOException e) 
+        {
+            JOptionPane.showMessageDialog(null, "Error saving inventory: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Main method to instantiate and launch the inventory management system.
+     * @param args Command-line arguments (not used).
+     */
+    public static void main(String[] args)
     {
         new Inventory();
     }
 }
 
-//========= Week 2 ============
-
-abstract class AbstractItem 
-{
-    protected String name;
-    protected double price;
-    protected int quantity;
-
-    public AbstractItem(String name, double price, int quantity)
-    {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-    }
-
-    public abstract double calculateTotalPrice();
-
-    public String getName() 
-    {
-        return name;
-    }
-
-    public double getPrice() 
-    {
-        return price;
-    }
-
-    public int getQuantity() 
-    {
-        return quantity;
-    }
-}
