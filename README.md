@@ -1,18 +1,18 @@
 InventoryManagementTool
 
-Description:
+#Description:
 
 The project entails the development of an Inventory Management System (IMS) using Java with a graphical user interface (GUI) built on Swing. The IMS allows users to efficiently manage inventory items, including adding, viewing, and deleting items, as well as saving the inventory to a file for future reference.
 
-Purpose:
+#Purpose:
 
 The purpose of the Inventory Management System is to provide businesses with a user-friendly tool to track and control their inventory effectively. By automating inventory management processes, the system aims to streamline operations, reduce errors, and improve overall efficiency.
 
-Introduction:
+#Introduction:
 
 Managing inventory is a critical aspect of running any business, whether small-scale retail or large-scale manufacturing. The ability to track and control inventory items efficiently is essential for maintaining optimal stock levels, minimizing losses, and ensuring customer satisfaction. Our Inventory Management System aims to address these needs by providing a comprehensive solution with a user-friendly interface, allowing businesses to manage their inventory seamlessly.
 
-Requirements:
+#Requirements:
 
 -Implement file handling capabilities in Java to save and load inventory data from a text file.
 
