@@ -1,5 +1,28 @@
 # InventoryManagementTool
 
+## Table of context
+
+1.[Description](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#description)
+
+2.[Purpose](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#purpose)
+
+3.[Introduction](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#introduction)
+
+4.[Requirements](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#requirements)
+
+5.[Blueprint](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#blueprint)
+
+6.[UML](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#uml)
+
+7.[CRC CARDS](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#crc)
+
+8.[WireFrame](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
+
+9.[RTM](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
+
+10.[GUI](https://github.com/Brrianlle/InventoryManagement/edit/main/README.md#wireframe)
+
+
 ## Description:
 
 The project entails the development of an Inventory Management System (IMS) using Java with a graphical user interface (GUI) built on Swing. The IMS allows users to efficiently manage inventory items, including adding, viewing, and deleting items, as well as saving the inventory to a file for future reference.
