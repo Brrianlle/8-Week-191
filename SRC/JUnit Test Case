@@ -1,37 +1,47 @@
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 /*
  *  Author: Brian Le
  *  
- *  Version / Date: 04-14-2024
+ *  Version / Date: 05/14/2024
  *  
  *  Responsibilities: Tests to ensure methods work
  */
 
-/*
- * This test makes sure the GUI is properly initialized and
- * displayed when the inventory object is created
- */
-public class InventoryTest {
+
+public class InventoryTest 
+{
 
     @Test
-    void testCreateAndShowGUI() 
+    public void testAddItem() 
     {
-        Inventory inventory = new Inventory();
-        assertNotNull(inventory);
-        // Add more assertions as needed
+        InventoryManager inventoryManager = new InventoryManager();
+        Item item = new RenewableItem("Test Item", 10.0, 5);
+        inventoryManager.addItem(item);
+        List<Item> items = inventoryManager.getItems();
+        assertTrue(items.contains(item));
     }
-}
 
-//    @Test
-//    void testAbstractItemConstructor() 
-//    {
-//        AbstractItem item = new ElectronicItem("Laptop", 999.99, 3);
-//        assertNotNull(item);
-//        assertEquals("Laptop", item.getName());
-//        assertEquals(999.99, item.getPrice());
-//        assertEquals(3, item.getQuantity());
-//    }
+    @Test
+    public void testRemoveItem()
+    {
+        InventoryManager inventoryManager = new InventoryManager();
+        Item item = new RenewableItem("Test Item", 10.0, 5);
+        inventoryManager.addItem(item);
+        inventoryManager.removeItem(item);
+        List<Item> items = inventoryManager.getItems();
+        assertFalse(items.contains(item));
+    }
+
+    @Test
+    public void testCalculateTotalPrice() 
+    {
+        Item item = new RenewableItem("Test Item", 10.0, 5);
+        double totalPrice = item.calculateTotalPrice();
+        assertEquals(50.0, totalPrice);
+    }
+
+   
+}
